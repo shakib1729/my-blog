@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PostMetadata } from '@/components/PostMetadata';
+import type { PostMetadata } from '@/types';
 
 const PostPreview = (props: PostMetadata) => (
   <div className="border border-slate-300 p-4 rounded-md shadow-md bg-white">
@@ -10,5 +10,4 @@ const PostPreview = (props: PostMetadata) => (
     <p className="text-slate-700">{props.subtitle}</p>
   </div>
 );
-
 export default PostPreview;
