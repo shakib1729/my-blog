@@ -2,6 +2,8 @@ import fs from 'fs';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import path from 'path';
 import { RoughNotation, RoughNotationGroup } from 'react-rough-notation';
+import Image from '@/components/Image';
+
 import type { PostMetadata } from '@/types';
 import type { ReactElement } from 'react';
 
@@ -14,7 +16,7 @@ export const getPostBySlug = async (slug: string): Promise<{ meta: PostMetadata;
 
   const { frontmatter, content } = await compileMDX<PostMetadata>({
     source: fileContent,
-    components: { RoughNotationGroup, RoughNotation },
+    components: { RoughNotationGroup, RoughNotation, Image },
     options: { parseFrontmatter: true },
   });
 
