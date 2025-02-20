@@ -28,17 +28,12 @@ export const getAllPostsMetadata = async () => {
   const files = fs.readdirSync(folder);
   const mdxPostFiles = files.filter(file => file.endsWith('.mdx'));
 
-  // const posts = [];
-  // for (const file of mdxPostFiles) {
-  //   const { meta } = await getPostBySlug(file);
-  //   posts.push(meta);
-  // }
-
   const postsPromises = mdxPostFiles.map(async file => {
     const { meta } = await getPostBySlug(file);
     return meta;
   });
   const posts = await Promise.all(postsPromises);
 
-  return posts;
+  // Dates must be in YYYY-MM-DD format
+  return posts.sort((first, second) => new Date(second.date).getTime() - new Date(first.date).getTime());
 };
