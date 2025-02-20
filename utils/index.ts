@@ -3,22 +3,28 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import path from 'path';
 import { RoughNotation, RoughNotationGroup } from 'react-rough-notation';
 import Image from '@/components/Image';
+import ExternalLink from '@/components/ExternalLink';
 
 import type { PostMetadata } from '@/types';
 import type { ReactElement } from 'react';
 
-const ROOT_DIR = 'posts';
+const ROOT_DIR = 'articles/posts';
+
+export const readMDX = async (filePath: string) => {
+  const fileContent = fs.readFileSync(filePath, { encoding: 'utf-8' });
+
+  return compileMDX<PostMetadata>({
+    source: fileContent,
+    components: { RoughNotationGroup, RoughNotation, Image, ExternalLink },
+    options: { parseFrontmatter: true },
+  });
+};
+
 export const getPostBySlug = async (slug: string): Promise<{ meta: PostMetadata; content: ReactElement }> => {
   const realSlug = slug.replace(/\.mdx$/, '');
   const filePath = path.join(ROOT_DIR, `${realSlug}.mdx`);
 
-  const fileContent = fs.readFileSync(filePath, { encoding: 'utf-8' });
-
-  const { frontmatter, content } = await compileMDX<PostMetadata>({
-    source: fileContent,
-    components: { RoughNotationGroup, RoughNotation, Image },
-    options: { parseFrontmatter: true },
-  });
+  const { frontmatter, content } = await readMDX(filePath);
 
   return { meta: { ...frontmatter, slug: realSlug }, content };
 };
