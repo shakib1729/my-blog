@@ -12,7 +12,7 @@ export const metadata = {
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   return (
-    <Link href={href} className={`text-md font-medium text-slate-500 hover:text-slate-900`}>
+    <Link href={href} className={`text-md font-medium text-slate-500 hover:text-slate-900 hover:underline`}>
       {children}
     </Link>
   );
