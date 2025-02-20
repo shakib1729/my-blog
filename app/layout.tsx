@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <header className="flex items-center justify-between py-3 border-b border-slate-700">
       <div className="flex items-center space-x-4">
         <Link href="/">
-          <h1 className="text-lg text-slate-500 font-medium">Shakib Ahmed</h1>
+          <h1 className="text-lg text-slate-600 font-medium hover:text-slate-900">Shakib Ahmed</h1>
         </Link>
       </div>
       <div className="flex items-center space-x-6">
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             href="https://github.com/shakib1729"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-50"
+            className="opacity-75 hover:opacity-100"
           >
             <Image src={GithubIcon} width={30} alt="Github Icon" />
           </a>
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             href="https://www.linkedin.com/in/shakib-1729/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-75"
+            className="opacity-75 hover:opacity-100"
           >
             <Image src={LinkedInIcon} width={30} alt="LinkedIn Icon" />
           </a>
