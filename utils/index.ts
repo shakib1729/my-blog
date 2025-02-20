@@ -37,3 +37,11 @@ export const getAllPostsMetadata = async () => {
   // Dates must be in YYYY-MM-DD format
   return posts.sort((first, second) => new Date(second.date).getTime() - new Date(first.date).getTime());
 };
+
+export const formatDate = (dateStr: string) => {
+  return new Date(dateStr).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
+};

@@ -1,4 +1,4 @@
-import { getAllPostsMetadata, getPostBySlug } from '@/utils';
+import { formatDate, getAllPostsMetadata, getPostBySlug } from '@/utils';
 
 export const generateStaticParams = async () => {
   const posts = await getAllPostsMetadata();
@@ -14,7 +14,7 @@ const PostPage = async (props: any) => {
     <div>
       <div className="my-8 text-center">
         <h1 className="text-2xl text-slate-600"> {meta.title} </h1>
-        <p className="text-slate-400 mt-2">{meta.date}</p>
+        <p className="text-slate-400 mt-2">{formatDate(meta.date)}</p>
       </div>
       <article className="prose">{content}</article>
     </div>
