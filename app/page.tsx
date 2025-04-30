@@ -13,7 +13,7 @@ const Index = () => (
         <p className="italic">Explorer at heart, engineer by profession</p>
       </div>
       <p className="max-w-lg mx-auto">
-        <RoughNotationGroup>
+        <RoughNotationGroup show>
           a full-stack software engineer curious to explore new things. Passionate about&nbsp;
           <RoughNotation type="highlight" color="#abf1f5" animationDelay={1000}>
             travel
