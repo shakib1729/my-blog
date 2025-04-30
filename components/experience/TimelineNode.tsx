@@ -16,7 +16,7 @@ const TimelineNode = ({
 }) => {
   return (
     <div className="flex mb-8 last:mb-0">
-      <div className="relative z-10 mr-4">
+      <div className="relative z-10 mr-2 lg:mr-4">
         <div
           className={`w-12 h-12 rounded-full shadow-md flex items-center justify-center ${
             isFirst ? 'bg-blue-500' : isLast ? 'bg-teal-500' : 'bg-gradient-to-br from-blue-400 to-teal-400'
