@@ -32,7 +32,7 @@ const Index = () => (
         </RoughNotationGroup>
       </p>
     </header>
-    <main className="p-4">
+    <main className="lg:p-4">
       <ExperienceTimeline experiences={experiences} />
     </main>
   </>

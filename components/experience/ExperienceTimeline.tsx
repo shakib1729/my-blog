@@ -11,7 +11,7 @@ const ExperienceTimeline = ({ experiences }: { experiences: Experience[] }) => {
   }
 
   return (
-    <div className="relative max-w-3xl">
+    <div className="relative">
       <div className="absolute left-6 top-6 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-teal-400 rounded-full z-0" />
       {experiences.map((experience, index) => (
         <TimelineNode
